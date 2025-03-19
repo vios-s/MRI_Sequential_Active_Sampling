@@ -1,0 +1,74 @@
+
+# Base Path config
+log_name: knee_sequentia_acl_under_image
+log_path: ./log/
+data_path: ../Dataset/
+list_path: ../Dataset/ACL_Diagnosis_split.csv
+
+
+# Mask Config
+mask_type: vds
+kspace_size: [640,400]
+recon_size: [320,320]
+center_fractions: [0.00]
+initial_accelerations: 20
+final_accelerations: 4
+
+#Data Config
+batch_size: 8
+sample_rate: 1.0
+sampling_method: Downsample  #'Downsample' or 'None'
+test_path:
+num_classes: 2 #each label is binary task
+num_label: 1 #labels in total
+class_list:
+diseased_label_name: acl
+severity_label_name: low
+thresh: [0.5, 0.5]
+
+# Inference Network Config
+diseased_infer_model_checkpoint:
+severity_infer_model_checkpoint:
+model_type: resnet50
+reward_type: CE
+in_channel: 2
+thresh_method: None
+
+# Policy Network Config
+mode: test
+max_epochs: 50
+num_gpus: 1
+num_workers: 4
+lr: 0.00001
+weight_decay: 0.0
+lr_step_size: 5
+lr_gamma: 0.1
+acquisition_steps: 80
+num_trajectories: 8
+test_trajectories: 1
+no_baseline: False
+greedy_action: True
+feature_map_input_layer: 2
+step_to_log: 10
+loss_weight: [1.0, 1.0]
+policy_in_channel: 2
+num_pool_layers: 4
+dropout_prob: 0.2
+fc_size: 256
+save_mask: False
+
+#
+milestones: [0, 4, 9, 14, 19, 24, 29, 34, 39, 49, 59]
+device: cuda
+use_feature_map: True
+report_interval: 50
+batches_step: 1
+wandb: False
+gamma: 1
+
+# resume train
+resume_train: False
+ckpt_path:
+
+
+
