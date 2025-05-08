@@ -103,7 +103,15 @@ This project uses Weights & Biases (wandb) for experiment tracking and visualiza
 If you use this code in your research, please cite:
 
 ```
-[Citation information will be added here]
+@misc{du2025activesamplingmribasedsequential,
+      title={Active Sampling for MRI-based Sequential Decision Making}, 
+      author={Yuning Du and Jingshuai Liu and Rohan Dharmakumar and Sotirios A. Tsaftaris},
+      year={2025},
+      eprint={2505.04586},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2505.04586}, 
+}
 ```
 
 
